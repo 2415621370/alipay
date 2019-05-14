@@ -8,6 +8,7 @@ import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
+import com.sihai.annotation.Log;
 import org.n3r.idworker.Sid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -62,6 +63,7 @@ public class AlipayController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/products")
+	@Log(title = "支付宝支付模块",action = "获取产品列表")
 	public ModelAndView products() throws Exception {
 
 		List<Product> pList = productService.getProducts();
