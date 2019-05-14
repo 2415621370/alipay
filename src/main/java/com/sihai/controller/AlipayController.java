@@ -81,6 +81,7 @@ public class AlipayController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/goConfirm")
+	@Log(title = "支付宝支付模块",action = "进入确认页面")
 	public ModelAndView goConfirm(String productId) throws Exception {
 
 		Product p = productService.getProductById(productId);
@@ -97,6 +98,7 @@ public class AlipayController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/createOrder2")
+	@Log(title = "支付宝支付模块",action = "创建订单")
 	public ModelAndView createOrde2r(Orders order) throws Exception {
 
 		Product p = productService.getProductById(order.getProductId());
@@ -125,6 +127,7 @@ public class AlipayController {
 	 */
 	@RequestMapping(value = "/createOrder")
 	@ResponseBody
+	@Log(title = "支付宝支付模块",action = "分段提交-保存订单")
 	public LeeJSONResult createOrder(Orders order) throws Exception {
 
 		Product p = productService.getProductById(order.getProductId());
@@ -148,6 +151,7 @@ public class AlipayController {
 	 * @throws Exception
 	 */
 	@RequestMapping(value = "/goPay")
+	@Log(title = "支付宝支付模块",action = "分段提交-保存订单-第二段")
 	public ModelAndView goPay(String orderId) throws Exception {
 
 		Orders order = orderService.getOrderById(orderId);
@@ -175,6 +179,7 @@ public class AlipayController {
 	 */
 	@RequestMapping(value = "/goAlipay", produces = "text/html; charset=UTF-8")
 	@ResponseBody
+	@Log(title = "支付宝支付模块",action = "去支付")
 	public String goAlipay(String orderId, HttpServletRequest request, HttpServletRequest response) throws Exception {
 
 		Orders order = orderService.getOrderById(orderId);

@@ -40,7 +40,7 @@ public class LogAspect {
      */
     @AfterReturning(pointcut = "logPointCut()")
     public void doBefore(JoinPoint joinPoint) {
-
+log.info("后置通知-------");
         handleLog(joinPoint, null);
     }
 
@@ -52,6 +52,7 @@ public class LogAspect {
      */
     @AfterThrowing(value = "logPointCut()", throwing = "e")
     public void doAfter(JoinPoint joinPoint, Exception e) {
+        log.info("异常通知-------");
         handleLog(joinPoint, e);
     }
 
